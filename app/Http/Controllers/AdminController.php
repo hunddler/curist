@@ -8,6 +8,22 @@ use DB;
 class AdminController extends Controller
 {
 
+    public function HomePage()
+    {
+        $data =  DB::table('homepage')->where('section','section1')->first();
+        $Tourist =  DB::table('homepage')->where('section','tourist')->first();
+        $Multifunction =  DB::table('homepage')->where('section','multifunction')->first();
+        $Team  =  DB::table('team')->limit(2)->get();
+        $TeamSlide  =  DB::table('team')->get();
+        $footer =  DB::table('homepage')->where('section','download')->first();
+        $Benefit =  DB::table('homepage')->where('section','benefit')->first();
+        $Benefitbottom =  DB::table('homepage')->where('section','benefitbottom')->first();
+        $company =  DB::table('homepage')->where('section','company')->first();
+
+        return view('index',compact('data','Tourist','Multifunction','Team','TeamSlide','footer','Benefit','Benefitbottom','company'));
+
+    }
+
     public function Homesection()
     {
         $data =  DB::table('homepage')->where('section','section1')->first();
@@ -229,18 +245,7 @@ if ($request->has('btn_logo_1')) {
      }
      
 
-     public function HomePage()
-     {
-         $data =  DB::table('homepage')->where('section','section1')->first();
-         $Tourist =  DB::table('homepage')->where('section','tourist')->first();
-         $Multifunction =  DB::table('homepage')->where('section','multifunction')->first();
-         $Team  =  DB::table('team')->limit(2)->get();
-         $TeamSlide  =  DB::table('team')->get();
-         $footer =  DB::table('homepage')->where('section','download')->first();
-
-         return view('index',compact('data','Tourist','Multifunction','Team','TeamSlide','footer'));
  
-     }
 
      public function AddMultifunction(Request $request){
        
@@ -441,4 +446,192 @@ if ($request->has('btn_logo_1')) {
          return redirect()->back()->with('msg','About Us Updated successfully..!!');
      
      }
+
+     public function SectionBenifit()
+     {
+ 
+        $data =  DB::table('homepage')->where('section','benefit')->first();
+        $Benefitbottom =  DB::table('homepage')->where('section','benefitbottom')->first();
+
+         return view('admin/page-content/benefit',compact('data','Benefitbottom'));
+ 
+     }
+
+     
+    public function AddBenefitsection(Request $request){
+       
+
+        
+        $data =  DB::table('homepage')->where('section',$request->section)->first();
+
+    
+
+        if($request->benefit_logo)
+        {
+            $filename_1 = $this->sendimagetodirectory($request->benefit_logo);
+        }else{
+
+            $filename_1 = $request->oldimage_1;
+        }
+
+        if($request->benefit_logo_1)
+        {
+            $filename_2 = $this->sendimagetodirectory($request->benefit_logo_1);
+        }else{
+
+            $filename_2 = $request->oldimage_2;
+        }
+
+         if($data)
+         {
+         DB::table('homepage')->where('section',$request->section)
+         ->update([
+             'heading' => $request->heading,
+             'sub_heading' => $request->sub_heading,
+             'benefit_feild' => $request->benefit_feild,
+             'benefit_feild_1' => $request->benefit_feild_1,
+             'benefit_feild_2' => $request->benefit_feild_2,
+             'benefit_feild_3' =>  $request->benefit_feild_3,
+             'benefit_logo' =>  $filename_1,
+             'benefit_logo_1' => $filename_2,
+
+         ]);
+     
+     }else{
+ 
+         DB::table('homepage')
+         ->insert([
+            'section' => $request->section,
+            'sub_heading' => $request->sub_heading,
+            'heading' => $request->heading,
+            'benefit_feild' => $request->benefit_feild,
+            'benefit_feild_1' => $request->benefit_feild_1,
+            'benefit_feild_2' => $request->benefit_feild_2,
+            'benefit_feild_3' =>  $request->benefit_feild_3,
+            'benefit_logo' =>  $filename_1,
+            'benefit_logo_1' => $filename_2,
+
+
+    
+         ]);
+ 
+ 
+     }
+     
+         return redirect()->back()->with('msg','Section Updated successfully..!!');
+     
+     }
+
+     public function AddBenefitsectionBottom(Request $request){
+       
+
+        
+        $data =  DB::table('homepage')->where('section',$request->section)->first();
+
+    
+
+        if($request->benefit_logo)
+        {
+            $filename_1 = $this->sendimagetodirectory($request->benefit_logo);
+        }else{
+
+            $filename_1 = $request->oldimage_1;
+        }
+
+        if($request->benefit_logo_1)
+        {
+            $filename_2 = $this->sendimagetodirectory($request->benefit_logo_1);
+        }else{
+
+            $filename_2 = $request->oldimage_2;
+        }
+
+         if($data)
+         {
+         DB::table('homepage')->where('section',$request->section)
+         ->update([
+             'heading' => $request->heading,
+             'sub_heading' => $request->sub_heading,
+             'benefit_feild' => $request->benefit_feild,
+             'benefit_feild_1' => $request->benefit_feild_1,
+             'benefit_feild_2' => $request->benefit_feild_2,
+             'benefit_feild_3' =>  $request->benefit_feild_3,
+             'benefit_logo' =>  $filename_1,
+             'benefit_logo_1' => $filename_2,
+
+         ]);
+     
+     }else{
+ 
+         DB::table('homepage')
+         ->insert([
+            'section' => $request->section,
+            'sub_heading' => $request->sub_heading,
+            'heading' => $request->heading,
+            'benefit_feild' => $request->benefit_feild,
+            'benefit_feild_1' => $request->benefit_feild_1,
+            'benefit_feild_2' => $request->benefit_feild_2,
+            'benefit_feild_3' =>  $request->benefit_feild_3,
+            'benefit_logo' =>  $filename_1,
+            'benefit_logo_1' => $filename_2,
+
+
+    
+         ]);
+ 
+ 
+     }
+     
+         return redirect()->back()->with('msg','Section Updated successfully..!!');
+     
+     }
+
+     public function CompanyInfo()
+     {
+         $data =  DB::table('homepage')->where('section','company')->first();
+ 
+         return view('admin/page-content/company',compact('data'));
+ 
+     }
+
+     
+     public function AddCompanyInfo(Request $request){
+       
+
+        $data =  DB::table('homepage')->where('section',$request->section)->first();
+
+        if($request->company_logo)
+        {
+            $filename = $this->sendimagetodirectory($request->company_logo);
+        }else{
+
+            $filename = $request->oldimage;
+        }
+
+         if($data)
+         {
+         DB::table('homepage')->where('section',$request->section)
+         ->update([
+             'company_logo' => $filename,
+
+         ]);
+     
+     }else{
+ 
+         DB::table('homepage')
+         ->insert([
+            'section' => $request->section,
+            'company_logo' => $filename,
+
+
+    
+         ]);
+ 
+ 
+     }
+     return redirect()->back()->with('msg','Section Updated successfully..!!');
+
+
+    }
+ 
 }

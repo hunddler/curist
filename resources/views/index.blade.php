@@ -20,7 +20,7 @@
         <div class="main-header-outer">
           <div class="header-logo">
             <a href="#">
-              <img src="{{asset('assets/images/logo.png')}}" class="img-fluid">
+              <img src="@if($company){{asset('assets/'.$company->company_logo)}}@endif" class="img-fluid">
             </a>
           </div>
           <div class="header-menu">
@@ -157,23 +157,23 @@
           <div class="benifts-left-content benifit-one">
             <div class="benifts-left-bg single-image-slide" data-aos="fade-up" data-aos-duration="3000">
               <div class="benifts-left-inner">
-                <img src="{{asset('assets/images/benifits-1.png')}}" class="img-fluid">
+                <img src="@if($Benefit){{asset('assets/'.$Benefit->benefit_logo)}}@endif" class="img-fluid">
               </div>
               <div class="benifts-left-inner">
-                <img src="{{asset('assets/images/benifits-2.png')}}" class="img-fluid">
+                <img src="@if($Benefit){{asset('assets/'.$Benefit->benefit_logo_1)}}@endif" class="img-fluid">
               </div>
             </div>
           </div>
           <div class="benifts-right-content">
             <div class="benifts-right-inner">
-              <span data-aos="fade-up" data-aos-duration="3000">For Tourists</span>
-              <h2 data-aos="fade-up" data-aos-duration="3000">Curist - benefits for tourists</h2>
+              <span data-aos="fade-up" data-aos-duration="3000">@if($Benefit){{$Benefit->heading}}@endif</span>
+              <h2 data-aos="fade-up" data-aos-duration="3000">@if($Benefit){{$Benefit->sub_heading}}@endif</h2>
               <div class="benifts-right-content-outer" data-aos="fade-up" data-aos-duration="3000">
                 <div class="left-icon">
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefit){{$Benefit->benefit_feild}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer" data-aos="fade-up" data-aos-duration="3000">
@@ -181,7 +181,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefit){{$Benefit->benefit_feild_1}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer" data-aos="fade-up" data-aos-duration="3000">
@@ -189,7 +189,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefit){{$Benefit->benefit_feild_2}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer" data-aos="fade-up" data-aos-duration="3000">
@@ -197,7 +197,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefit){{$Benefit->benefit_feild_3}}@endif</p>
                 </div>
               </div>
             </div>
@@ -206,14 +206,14 @@
         <div class="benifts-main-outer " style="background-color: #ffff;">
           <div class="benifts-right-content">
             <div class="benifts-right-inner">
-              <span>For Tourists</span>
-              <h2>Curist - benefits for tourists</h2>
+              <span>@if($Benefitbottom){{$Benefitbottom->heading}}@endif</span>
+              <h2>@if($Benefitbottom){{$Benefitbottom->sub_heading}}@endif</h2>
               <div class="benifts-right-content-outer">
                 <div class="left-icon">
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefitbottom){{$Benefitbottom->benefit_feild}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer">
@@ -221,7 +221,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefitbottom){{$Benefitbottom->benefit_feild_1}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer">
@@ -229,7 +229,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefitbottom){{$Benefitbottom->benefit_feild_2}}@endif</p>
                 </div>
               </div>
               <div class="benifts-right-content-outer">
@@ -237,7 +237,7 @@
                   <img src="{{asset('assets/images/icon.png')}}" class="img-fluid">
                 </div>
                 <div class="benifts-right-text">
-                  <p>The first all-in digital platform to serve your visitor with curated information and rich content including immersive augmented reality experiences</p>
+                  <p>@if($Benefitbottom){{$Benefitbottom->benefit_feild_3}}@endif</p>
                 </div>
               </div>
             </div>
@@ -245,10 +245,10 @@
           <div class="benifts-left-content benifit-two">
             <div class="benifts-left-bg single-image-slide-2">
               <div class="benifts-left-inner">
-                <img src="assets/images/benifits-2.png" class="img-fluid">
+                <img src="@if($Benefitbottom){{asset('assets/'.$Benefitbottom->benefit_logo)}}@endif" class="img-fluid">
               </div>
               <div class="benifts-left-inner">
-                <img src="assets/images/benifits-1.png" class="img-fluid">
+                <img src="@if($Benefitbottom){{asset('assets/'.$Benefitbottom->benefit_logo_1)}}@endif" class="img-fluid">
               </div>
             </div>
           </div>

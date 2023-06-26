@@ -34,6 +34,8 @@ Route::get('admin/page-content-multifunction', [App\Http\Controllers\AdminContro
 
 Route::get('admin/page-content-team', [App\Http\Controllers\AdminController::class, 'SectionTeam']);
 Route::get('admin/page-content-footer', [App\Http\Controllers\AdminController::class, 'DownloadSection']);
+Route::get('admin/page-content-benfit', [App\Http\Controllers\AdminController::class, 'SectionBenifit']);
+Route::get('admin/page-content-company', [App\Http\Controllers\AdminController::class, 'CompanyInfo']);
 
 Route::post('add/homesection', [App\Http\Controllers\AdminController::class, 'AddHomesection']);
 Route::post('add/tourist', [App\Http\Controllers\AdminController::class, 'AddTouristsection']);
@@ -42,3 +44,6 @@ Route::post('add/multifunction', [App\Http\Controllers\AdminController::class, '
 Route::post('add/team', [App\Http\Controllers\AdminController::class, 'AddTeam']);
 Route::post('add/editteam', [App\Http\Controllers\AdminController::class, 'EditTeam']);
 Route::post('add/downloadsection', [App\Http\Controllers\AdminController::class, 'AddDownloadsection']);
+Route::post('add/benefit', [App\Http\Controllers\AdminController::class, 'AddBenefitsection']);
+Route::post('add/benefitbottom', [App\Http\Controllers\AdminController::class, 'AddBenefitsectionBottom']);
+Route::post('add/companyinfo', [App\Http\Controllers\AdminController::class, 'AddCompanyInfo']);

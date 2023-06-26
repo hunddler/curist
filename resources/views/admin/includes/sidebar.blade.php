@@ -90,6 +90,16 @@
                                     <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Section Download</span>
                                 </a>
                             </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="{{url('admin/page-content-benfit')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Section Benfit</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" aria-haspopup="true">
+                                <a href="{{url('admin/page-content-company')}}" class="menu-link">
+                                    <i class="menu-bullet menu-bullet-dot"><span></span></i><span class="menu-text">Company Information</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
